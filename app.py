@@ -271,6 +271,7 @@ model, vectorizer, error_message = load_or_train_model()
 def home():
     return render_template('index.html', error=error_message)
 
+
 @app.route('/about')
 def about():
     return render_template('about.html')
@@ -313,7 +314,6 @@ def report_hate_speech():
     """API endpoint to report hate speech for further review"""
     if request.method == 'POST':
         report_data = request.json
-        
         # In a production app, this would store the report in a database
         # For demo purposes, we'll just return success
         
