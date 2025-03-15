@@ -183,7 +183,8 @@ def load_or_train_model():
         X = df['tweet']
         y = df['label']
         
-        vectorizer = TfidfVectorizer(max_features=5000)
+        vectorizer = TfidfVectorizer(max_features=1000)
+
         X = vectorizer.fit_transform(X)
         
         weights = {0: 1.0, 1: 13.0}
