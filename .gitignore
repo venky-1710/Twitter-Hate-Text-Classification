@@ -1,1 +1,3 @@
 .vercel
+hate_speech_model.joblib
+vectorizer.joblib
