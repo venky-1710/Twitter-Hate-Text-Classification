@@ -1,3 +1,4 @@
 .vercel
 hate_speech_model.joblib
 vectorizer.joblib
+twitter-hate-speech-classification.ipynb
