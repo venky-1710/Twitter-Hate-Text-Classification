@@ -192,6 +192,9 @@ def load_or_train_model():
         model.fit(X, y)
         
         joblib.dump(model, model_path)
+        model_quantized = quantize_model(model)  # Add quantization step
+        joblib.dump(model_quantized, model_path)  # Save the quantized model
+
         joblib.dump(vectorizer, vectorizer_path)
     
     return model, vectorizer, None
@@ -214,7 +217,8 @@ def predict():
     if model is None or vectorizer is None:
         return jsonify({'error': error_message})
     
-    text = request.form['tweet']
+    text = request.json['tweet']
+
     predictions, probabilities, aggressive_analysis = predict_hate_speech([text], model, vectorizer)
     
     result = {
